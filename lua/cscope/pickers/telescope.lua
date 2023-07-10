@@ -12,14 +12,14 @@ local entry_maker = function(entry)
 			local display_filename = utils.transform_path({}, entry["filename"])
 			local coordinates = string.format(":%s:", entry["lnum"])
 			local display_string = "%s%s%s"
-			local display, hl_group, icon = utils.transform_devicons(
+			local display, hl_group = utils.transform_devicons(
 				entry["filename"],
 				string.format(display_string, display_filename, coordinates, entry["text"]),
 				false
 			)
 
 			if hl_group then
-				return display, { { { 1, #icon }, hl_group } }
+				return display, { { { 1, 3 }, hl_group } }
 			else
 				return display
 			end
